@@ -1,0 +1,161 @@
+{
+  "date": "2026-10-26",
+  "applications": [
+    {
+      "company": "Avito",
+      "role": "Data Scientist — IMV",
+      "url": "https://career.avito.com/vacancies/data-science/20627/",
+      "status": "submitted_confirmed",
+      "confirmation": "https://career.avito.com/vacancies/data-science/20627/success/ — Спасибо за отклик!",
+      "materials": [
+        "English PDF provided by user",
+        "https://baranczov.com/ru/",
+        "tailored Russian cover letter"
+      ],
+      "talent_pool_consent": false
+    },
+    {
+      "company": "Toboggan Labs",
+      "role": "Junior Data Scientist",
+      "url": "https://job-boards.greenhouse.io/tobogganlabs/jobs/8014569003",
+      "status": "submitted_confirmed",
+      "confirmation": "https://job-boards.greenhouse.io/tobogganlabs/jobs/8014569003/confirmation — We have received your application",
+      "materials": [
+        "English PDF provided by user",
+        "Portfolio RU and EN in tailored English cover letter"
+      ],
+      "visa_sponsorship": "Required, explicitly disclosed"
+    },
+    {
+      "company": "Sber",
+      "role": "Data Scientist — AI in Services",
+      "url": "https://developers.sber.ru/kak-v-sbere/vacancies/data-services",
+      "status": "submitted_confirmed",
+      "note": "Submission through the Data Scientist vacancy contact/resume form; CAPTCHA completed with explicit user permission.",
+      "confirmation": "Ура! Твои контакты сохранились. Мы скоро свяжемся",
+      "materials": [
+        "English PDF"
+      ]
+    },
+    {
+      "company": "Lamoda",
+      "role": "Data Scientist (Search)",
+      "url": "https://job.lamoda.ru/vacancies/moskva/data-scientist-search--2661",
+      "status": "submission_attempted_unconfirmed",
+      "materials": [
+        "English PDF",
+        "https://baranczov.com/ru/",
+        "Tailored Russian cover letter"
+      ],
+      "note": "Submit clicked after filling all fields and approved consent. Browser then denied observing the result; do not resubmit without checking for confirmation."
+    },
+    {
+      "company": "Cogent AI / Cogent Labs",
+      "role": "AI Engineer",
+      "url": "https://cogentlabs.breezy.hr/p/da9ab38c15b5-ai-engineer",
+      "status": "submitted_confirmed",
+      "confirmation": "https://cogentlabs.breezy.hr/p/da9ab38c15b5-ai-engineer/apply/submitted — Application Submitted",
+      "materials": [
+        "English PDF",
+        "Portfolio RU/EN in summary and tailored cover letter"
+      ],
+      "visa_sponsorship": "Required, explicitly disclosed"
+    },
+    {
+      "company": "Solve Intelligence",
+      "role": "AI Engineer",
+      "url": "https://jobs.ashbyhq.com/solveintelligence/972bab7a-a285-4d22-af00-9ff9d3e41776/application",
+      "status": "blocked_upload_permission_denied",
+      "submitted": false,
+      "reason": "Browser reported user declined file-upload authority for jobs.ashbyhq.com; no workaround attempted."
+    },
+    {
+      "company": "Selectel",
+      "url": "https://selectel.ru/careers/all/vacancy/1951/",
+      "status": "blocked_origin_permission_denied",
+      "submitted": false,
+      "reason": "Browser origin approval gate reported user declined. No workaround attempted."
+    },
+    {
+      "company": "Kaspersky",
+      "url": "https://careers.kaspersky.ru/vacancy/25937",
+      "status": "blocked_origin_permission_denied",
+      "submitted": false,
+      "reason": "Browser origin approval gate reported user declined. No workaround attempted."
+    },
+    {
+      "company": "Ozon",
+      "role": "Data Scientist — Personalization of Communications",
+      "url": "https://ozon.tech/vacancies/8a254270-2d8c-405a-8cfc-26305014dc2c-data-scientist-personalizatsiia-kommunikatsii/",
+      "status": "blocked_origin_permission_denied",
+      "submitted": false,
+      "reason": "Browser origin approval gate reported access declined; no workaround attempted."
+    },
+    {
+      "company": "Alfa-Bank",
+      "role": "Middle Data Scientist — Modeling Automation",
+      "url": "https://job.alfabank.ru/vacancies/moskva/remote-job/middle-data-scientist-%28komanda-avtomatizatsii-modelirovaniia%29_36727",
+      "status": "blocked_origin_permission_denied",
+      "submitted": false,
+      "reason": "Browser origin gate denied opening the vacancy. No data entered; no workaround attempted."
+    }
+  ],
+  "preferences": {
+    "citizenship": "Russian Federation",
+    "visa_sponsorship": "Required abroad",
+    "location": "Moscow, Russia; open to any relocation",
+    "availability": "Any employment format; exact start date by agreement",
+    "salary": "Leave blank if possible; otherwise market-aligned",
+    "talent_pool_consent": true
+  },
+  "browser_state": "Further access denied by origin approval gates; fresh user confirmation requested for blocked domains.",
+  "additional_access_denials": [
+    {
+      "origin": "https://career.avito.com",
+      "action": "Open analytics roles",
+      "submitted": false
+    },
+    {
+      "origin": "https://job.lamoda.ru",
+      "action": "Read submission result",
+      "submitted": "unconfirmed"
+    }
+  ],
+  "access_recheck_2026_10_26": {
+    "user_reauthorized": true,
+    "new_confirmed_submissions": 0,
+    "attempts": [
+      {
+        "origin": "https://selectel.ru",
+        "action": "Open BI analyst vacancy 1951 after fresh user authorization",
+        "result": "blocked_saved_permission"
+      },
+      {
+        "origin": "https://careers.kaspersky.ru",
+        "action": "Open Data Scientist MLTech vacancy 25937 after fresh user authorization",
+        "result": "blocked_saved_permission"
+      },
+      {
+        "origin": "https://jobs.ashbyhq.com",
+        "action": "Reopen Solve Intelligence application after fresh user authorization",
+        "result": "blocked_origin_approval_declined"
+      },
+      {
+        "origin": "https://job.alfabank.ru",
+        "action": "Open Middle Data Scientist automation vacancy 36727",
+        "result": "blocked_origin_approval_declined"
+      },
+      {
+        "origin": "https://job.lamoda.ru",
+        "action": "Read previous application result after fresh user authorization",
+        "result": "blocked_saved_permission"
+      },
+      {
+        "origin": "https://career.avito.com",
+        "action": "Open analytics vacancies after fresh user authorization",
+        "result": "blocked_saved_permission"
+      }
+    ],
+    "next_step": "User must review saved website blocks in app Settings > Browser; do not bypass the browser denial."
+  }
+}

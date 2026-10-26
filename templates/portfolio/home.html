@@ -1,0 +1,208 @@
+{% load static portfolio_tags %}
+<!doctype html>
+<html lang="{{ language }}" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#005fb3">
+  <meta name="description" content="{{ t.description }}">
+  <title>baranczov</title>
+  <link rel="canonical" href="{{ site_url }}/{{ language }}/">
+  <link rel="alternate" hreflang="ru" href="{{ site_url }}/ru/">
+  <link rel="alternate" hreflang="en" href="{{ site_url }}/en/">
+  <link rel="alternate" hreflang="x-default" href="{{ site_url }}/ru/">
+  <meta property="og:title" content="{{ t.title }}">
+  <meta property="og:description" content="{{ t.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site_url }}/{{ language }}/">
+  <link rel="icon" href="{% static 'images/favicon-empty.svg' %}" type="image/svg+xml">
+  <script src="{% static 'js/theme-init.js' %}"></script>
+  <link rel="stylesheet" href="{% versioned_static 'css/style.css' %}">
+  <noscript><style>.carousel-stage{display:flex;gap:24px;overflow-x:auto;height:auto;padding:30px 24px}.orbit-card,.orbit-card:not([data-active=true]){position:relative;left:auto;top:auto;margin:0;flex-shrink:0;opacity:1;pointer-events:auto}.carousel-controls{display:none}.card-flipper{height:auto;min-height:var(--card-size)}.card-back{position:relative;transform:none;min-height:var(--card-size)}.card-front{display:none}.experience-placeholder .card-front{display:flex}.tech-marquee{overflow-x:auto}.experience-layout{height:auto}.experience-card{height:auto}.experience .task-list,.experience [data-flip]{display:none}.experience-static-tasks{font-size:var(--font-body)}.experience-static-tasks details{margin:20px 0}.experience-static-tasks summary{cursor:pointer}.experience-static-tasks p{user-select:text}.project-card{height:auto}.project-back-toggle{display:none}.project-card .card-back{padding:0}.project-card .project-back-content{min-height:var(--card-size)}</style></noscript>
+  <script type="importmap">
+    {"imports": {
+      "{% get_static_prefix %}js/carousel.js": "{% versioned_static 'js/carousel.js' %}",
+      "{% get_static_prefix %}js/marquee.js": "{% versioned_static 'js/marquee.js' %}",
+      "{% get_static_prefix %}js/experience-details.js": "{% versioned_static 'js/experience-details.js' %}",
+      "{% get_static_prefix %}js/motion.js": "{% versioned_static 'js/motion.js' %}"
+    }}
+  </script>
+  <script type="module" src="{% versioned_static 'js/app.js' %}"></script>
+</head>
+<body data-pause-label="{{ t.pause }}" data-play-label="{{ t.play }}" data-reduced-label="{{ t.reduced_motion }}">
+  <a class="skip-link" href="#main">{{ t.skip }}</a>
+  <header class="masthead">
+    <div class="segmented theme-switch">
+      <button type="button" data-theme-choice="light" aria-label="{{ t.light }}" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3M4.2 4.2l2.1 2.1m11.4 11.4 2.1 2.1M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></button>
+      <button type="button" data-theme-choice="dark" aria-label="{{ t.dark }}" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"/></svg></button>
+    </div>
+    <a class="wordmark" href="{% url 'home' language=language %}">baranczov</a>
+    <div class="segmented languages" aria-label="Language">
+      <a href="{% url 'home' language='ru' %}" lang="ru" hreflang="ru" {% if language == 'ru' %}aria-current="page"{% endif %}>ru</a>
+      <a href="{% url 'home' language='en' %}" lang="en" hreflang="en" {% if language == 'en' %}aria-current="page"{% endif %}>en</a>
+    </div>
+  </header>
+  <nav class="navigation" aria-label="{{ t.navigation }}">
+    <div class="nav-inner">
+      <a href="#about" class="active" aria-current="location">{{ t.about }}</a>
+      <a href="#experience">{{ t.experience }}</a>
+      <a href="#projects">{{ t.projects }}</a>
+      <a href="#stack">{{ t.stack }}</a>
+      <a href="#contacts">{{ t.contacts }}</a>
+    </div>
+  </nav>
+  <main id="main">
+    {% with first_field='first_name:'|add:language last_field='last_name:'|add:language bio_field='bio:'|add:language %}
+    <section id="about" class="hero section" aria-labelledby="hero-title">
+      <div class="hero-visual">
+        <div class="portrait-wrap">
+          <img class="portrait-backing" src="{% static 'images/portrait-background.svg' %}" alt="" width="614" height="529" aria-hidden="true">
+          <div class="portrait">
+            <img src="{% if profile.portrait %}{{ profile.portrait.url }}{% else %}{% static 'images/portrait-enhanced.webp' %}{% endif %}" alt="{{ t.portrait_alt }}" width="1254" height="1254" fetchpriority="high">
+          </div>
+        </div>
+        {% if resume_url %}<a class="resume-download" href="{{ resume_url }}" target="_blank" rel="noopener noreferrer">{{ t.cv }}</a>{% endif %}
+      </div>
+      <div class="hero-copy">
+        <h1 id="hero-title"><span>{{ profile|localized:first_field }}</span> <strong>{{ profile|localized:last_field }}</strong></h1>
+        <p class="hero-role"><span>ML Engineer</span> <span>/ Data Scientist</span></p>
+        {% if profile|localized:bio_field %}<div class="bio">{{ profile|localized:bio_field|biography|linebreaksbr }}</div>{% else %}<div class="bio-space" aria-hidden="true"></div>{% endif %}
+      </div>
+    </section>
+    {% endwith %}
+
+    <section id="experience" class="experience section" aria-labelledby="experience-title">
+      <div class="section-header"><h2 id="experience-title">{{ t.experience }}</h2></div>
+      <div class="carousel" data-carousel data-kind="experience" data-motion="coverflow" aria-roledescription="{{ t.carousel }}" aria-label="{{ t.experience }}" tabindex="0">
+        <div class="experience-layout">
+        <div class="experience-cards"><div class="carousel-stage">
+          {% for card in experiences %}
+          {% with item=card.record %}
+          {% if item %}
+          {% with role_field='role:'|add:language period_field='period:'|add:language title_field='title:'|add:language description_field='description:'|add:language %}
+          <article class="orbit-card experience-card" data-card data-index="{{ forloop.counter0 }}" data-flippable {% if forloop.first %}data-active="true"{% endif %} aria-label="{{ item.company }}">
+            <div class="card-flipper">
+              <button class="card-face card-front color-{{ item.color }}" type="button" data-flip aria-label="{{ item.company }} - {{ t.flip }}" aria-expanded="false">
+                {% if item.image %}<img src="{{ item.image.url }}" alt="{{ item.company }}" width="528" height="528" loading="lazy">{% elif card.cover %}<img src="{% static card.cover %}" alt="{{ item.company }}" width="528" height="528" loading="lazy">{% else %}<span class="company-name">{{ item.company }}</span>{% endif %}
+                <span class="flip-indicator" aria-hidden="true">↗</span>
+              </button>
+              <div class="card-face card-back">
+                <span class="experience-role">{{ item|localized:role_field }}</span>
+                <div class="task-list">
+                  {% for task in item.visible_tasks %}
+                  <button type="button" class="experience-task" data-task data-description="{{ task|localized:description_field }}" aria-expanded="false" aria-controls="experience-detail"><span>{{ task|localized:title_field }}</span><span aria-hidden="true">↗</span></button>
+                  {% endfor %}
+                </div>
+                <span class="experience-period">{{ item|localized:period_field }}</span>
+                <button type="button" class="flip-indicator" data-flip aria-label="{{ item.company }} - {{ t.back }}">↶</button>
+                <noscript><div class="experience-static-tasks">{% for task in item.visible_tasks %}<details><summary>{{ task|localized:title_field }}</summary><p>{{ task|localized:description_field }}</p></details>{% endfor %}</div></noscript>
+              </div>
+            </div>
+          </article>
+          {% endwith %}
+          {% else %}
+          <article class="orbit-card experience-card experience-placeholder" data-card data-index="{{ forloop.counter0 }}" {% if forloop.first %}data-active="true"{% endif %} aria-label="{{ card.company|default:t.experience_pending }}">
+            <button class="card-flipper" type="button" data-select aria-label="{{ t.go_to }}: {{ card.company|default:t.experience_pending }}">
+              <span class="card-face card-front {% if forloop.counter0 == 1 %}color-blue{% else %}color-lavender{% endif %}">{% if card.cover %}<img src="{% static card.cover %}" alt="{{ card.company }}" width="528" height="528" loading="lazy">{% else %}<span class="company-name">{{ t.experience_pending }}</span>{% endif %}</span>
+            </button>
+          </article>
+          {% endif %}
+          {% endwith %}
+          {% endfor %}
+        </div></div>
+        <aside id="experience-detail" class="experience-detail" aria-labelledby="experience-detail-title" hidden inert>
+          <button type="button" class="detail-close icon-button" data-close-task aria-label="{{ t.close_task }}">×</button>
+          <p class="detail-company" data-detail-company></p>
+          <div data-detail-content>
+            <h3 id="experience-detail-title" tabindex="-1"></h3>
+            <p class="detail-description" data-detail-description></p>
+          </div>
+        </aside>
+        </div>
+        {% include 'portfolio/carousel-controls.html' with minimal=True %}
+      </div>
+    </section>
+
+    <section id="projects" class="projects section" aria-labelledby="projects-title">
+      <div class="section-header"><h2 id="projects-title">{{ t.projects }}</h2></div>
+      <div class="carousel" data-carousel data-kind="projects" data-motion="ring" aria-roledescription="{{ t.carousel }}" aria-label="{{ t.projects }}" tabindex="0">
+        <div class="carousel-stage">
+          {% for item in projects %}
+          {% with title_field='title:'|add:language description_field='description:'|add:language %}
+          <article class="orbit-card project-card" data-color="{{ item.color }}" data-card data-index="{{ forloop.counter0 }}" data-flippable {% if forloop.first %}data-active="true"{% endif %} aria-label="{{ item|localized:title_field }}">
+            <div class="card-flipper">
+              <button class="card-face card-front" type="button" data-flip aria-expanded="false" aria-label="{{ item|localized:title_field }} — {{ t.project_flip }}">
+                {% if item.image %}<img class="project-cover" src="{{ item.image.url }}" alt="" loading="lazy" width="1254" height="1254">{% endif %}
+                <span class="project-title">{{ item|localized:title_field }}</span>
+                <span class="flip-indicator" aria-hidden="true">↗</span>
+              </button>
+              <div class="card-face card-back">
+                <div class="project-back-content">
+                  <noscript><h3 class="project-noscript-title">{{ item|localized:title_field }}</h3></noscript>
+                  <p class="project-description" data-back-focus tabindex="-1">{{ item|localized:description_field|default:t.empty }}</p>
+                  <div class="project-card-footer">
+                    <div class="project-links">
+                      {% if item.github_url %}<a href="{{ item.github_url }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub — {{ item|localized:title_field }}">GitHub <span aria-hidden="true">↗</span></a>{% endif %}
+                      {% if item.kaggle_url %}<a href="{{ item.kaggle_url }}" target="_blank" rel="noopener noreferrer" aria-label="Kaggle — {{ item|localized:title_field }}">Kaggle <span aria-hidden="true">↗</span></a>{% endif %}
+                      {% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ t.open_project }} <span aria-hidden="true">↗</span></a>{% endif %}
+                    </div>
+                    <button class="project-back-toggle" type="button" data-flip aria-label="{{ item|localized:title_field }} — {{ t.back }}">↶</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          {% endwith %}
+          {% empty %}
+            {% for i in placeholder_cards %}
+            <article class="orbit-card project-card project-placeholder" data-card data-index="{{ forloop.counter0 }}" {% if forloop.first %}data-active="true"{% endif %}>
+              <button type="button" class="project-select" data-select aria-label="{{ t.go_to }} {{ forloop.counter }} — {{ t.project_pending }}"><span class="placeholder-label">{{ t.project_pending }}</span></button>
+            </article>
+            {% endfor %}
+          {% endfor %}
+        </div>
+        {% include 'portfolio/carousel-controls.html' with minimal=True %}
+      </div>
+    </section>
+
+    <section id="stack" class="stack section" aria-labelledby="stack-title">
+      <div class="section-header"><h2 id="stack-title">{{ t.stack }}</h2></div>
+      <div class="tech-icon-bar" role="img" aria-label="PostgreSQL, JavaScript, Docker, scikit-learn, Apache Airflow, FastAPI, HTML, PyTorch, Python, CSS, Git, NumPy, Pandas"></div>
+      <div class="tech-marquee" data-marquee tabindex="0" aria-label="{{ t.stack }}">
+        <div class="tech-track">
+          <div class="tech-group">
+          {% for item in technologies %}
+          {% with title_field='title:'|add:language items_field='items:'|add:language %}
+            <article class="tech-card color-{{ item.color }}">
+              <h3>{{ item|localized:title_field }}</h3>
+              {% if item|localized:items_field %}<p class="tech-items">{{ item|localized:items_field }}</p>{% else %}<div class="tech-empty" aria-label="{{ t.stack_empty }}"><span aria-hidden="true">—</span></div>{% endif %}
+            </article>
+          {% endwith %}
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts" class="contacts section" aria-labelledby="contacts-title">
+      <h2 id="contacts-title" class="sr-only">{{ t.contacts }}</h2>
+      <div class="contact-pattern" aria-hidden="true">{% for row in pattern_rows %}<div class="pattern-row"><div>{% for i in pattern_repeats %}<span>{{ t.my_contacts }}</span>{% endfor %}</div><div>{% for i in pattern_repeats %}<span>{{ t.my_contacts }}</span>{% endfor %}</div></div>{% endfor %}</div>
+      <ul class="contact-honeycomb">
+        {% for contact in contact_tiles %}
+        <li class="contact-cell">
+          {% if contact.url %}
+          <a class="contact-tile contact-tile--{{ contact.icon }}" href="{{ contact.url }}" aria-label="{{ contact.label }}" {% if contact.url|slice:':7' != 'mailto:' %}target="_blank" rel="noopener noreferrer"{% endif %}>
+          {% else %}
+          <span class="contact-tile contact-tile--{{ contact.icon }}" role="link" aria-disabled="true" aria-label="{{ contact.label }}" title="{{ contact.pending_label }}">
+          {% endif %}
+            {% if contact.image %}<img src="{% static contact.image %}" alt="" width="{{ contact.width }}" height="{{ contact.height }}" loading="lazy" decoding="async">{% else %}<span>{{ t.resume }}</span>{% endif %}
+          {% if contact.url %}</a>{% else %}</span>{% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </main>
+  <footer><a class="wordmark" href="#about">baranczov</a></footer>
+</body>
+</html>
+

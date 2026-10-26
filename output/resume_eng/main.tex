@@ -1,0 +1,110 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{cmap}
+\usepackage[T1]{fontenc}
+\usepackage{type1ec}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[margin=12.7mm,top=11.5mm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\hypersetup{colorlinks=false,pdfborder={0 0 1},linkbordercolor={0 1 1},urlbordercolor={0 1 1},pdftitle={Danil Barantsov - Resume},pdfauthor={Danil Barantsov}}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.35em,labelsep=.45em,topsep=2pt,itemsep=2pt,parsep=0pt}
+\titleformat{\section}{\fontsize{12}{14}\selectfont\bfseries}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+\newcommand{\entry}[3]{\textbf{#1}\hfill #3\par\textit{#2}\par}
+\newcommand{\project}[2]{\vspace{6pt}\textbf{#1}\hfill #2\par}
+\newcommand{\gh}[1]{\href{#1}{GitHub}}
+\newcommand{\kg}[1]{\href{#1}{Kaggle}}
+\begin{document}
+\fontsize{10.5}{13}\selectfont
+\begin{center}
+{\fontsize{14.3}{17}\selectfont\bfseries Danil Barantsov}\par
+{\bfseries Machine Learning Engineer | Data Scientist}\par
+Moscow | \href{mailto:dbaranczov@inbox.ru}{dbaranczov@inbox.ru} |
+Telegram: \href{https://t.me/baranczov}{@baranczov} |
+GitHub: \href{https://github.com/baranczov}{baranczov}
+\end{center}
+\vspace{-2pt}
+\section*{Education}
+\entry{Central University, Moscow}{Bachelor's in Mathematics and Computer Science, Artificial Intelligence track}{2024 -- 2028}
+\begin{itemize}
+\item GPA: 8.67/10
+\item TBank and Arenadata scholarship recipient
+\end{itemize}
+\vspace{3pt}
+\entry{HSE University, Moscow}{Bachelor's in Mathematics and Computer Science}{2024 -- 2028}
+\begin{itemize}
+\item Admitted to the joint bachelor's program of Central University and HSE's Faculty of Computer Science, Applied Mathematics and Informatics
+\end{itemize}
+\section*{Achievements}
+\begin{itemize}
+\item Winner, regional stage of the All-Russian Olympiad for School Students in Mathematics
+\item Winner, All-Siberian Open Olympiad for School Students
+\item 3rd place, Datathon 2.0 (TBank case competition)
+\end{itemize}
+\section*{Work Experience}
+\entry{Machine Learning Engineer}{VkusVill}{November 2024 -- March 2026}
+\begin{itemize}
+\item \textbf{ML pipeline development.} Designed the architecture of the intelligent core for an on-call support incident analysis system based on a hybrid ML pipeline. Combined speech recognition, transcript processing and report generation into a sequential workflow for processing calls.
+\item \textbf{Speech recognition.} Integrated Vosk for local, real-time transcription of call audio streams. Implemented low-latency CPU processing so that conversation text entered the system as an incident was being discussed.
+\item \textbf{Report generation.} Implemented a use-case layer to buffer transcripts and group them by session. Integrated the Groq API with Llama-3 70B to generate reports from call transcripts at more than 200 tokens per second.
+\end{itemize}
+\vspace{4pt}
+\entry{Machine Learning Engineer}{IT-ONE}{February 2026 -- July 2026}
+\begin{itemize}
+\item \textbf{Feedback service.} Developed interfaces for creating, viewing and processing user requests: validated forms, searchable lists with filtering and sorting, and detailed cards with status and processing history. Designed empty-result, loading and error states.
+\item \textbf{Analytics service.} Built dashboards with key metrics, charts and tables. Implemented filtering by period and category, switching between data views and viewing metric details; developed reusable components for consistent presentation of analytics.
+\item \textbf{API integration.} Connected interfaces to backend services, implementing data retrieval and submission, response handling and content updates after user actions. Added operation result notifications and coordinated data formats with the backend team.
+\end{itemize}
+\vspace{4pt}
+\entry{Machine Learning Engineer}{TBank}{March 2026 -- October 2026}
+\begin{itemize}
+\item \textbf{Technology stack upgrade.} Upgraded the MLOps framework from 0.1.x to 0.2.x and GitLab CI to pipeline v2; migrated to Python 3.11 and verified 3.12 compatibility. Upgraded train/QA/prod Airflow instances to 2.10.5, migrated models from S3 to Model Registry and adapted model loading. Verified training and QA DAGs and inference; retrospective testing confirmed no discrepancies in model scores.
+\item \textbf{172T model development.} Prepared a retraining dataset by fixing SQL scripts and Airflow DAG logic, replacing two bases with a single one. Reviewed the model architecture and previous experiments, then formulated 10 hypotheses to improve quality. Tested them with the team, compared results and identified changes that improved model metrics.
+\item \textbf{ML system documentation.} Reviewed the documentation and code for all models in the production repository, comparing descriptions with implementation. Collected questions on data preparation, training and inference, clarified details with developers and updated ML System Doc.
+\end{itemize}
+\newpage
+\section*{Projects}
+\project{Loan Prepayment Prediction}{\kg{https://www.kaggle.com/competitions/cu-2025-scoring} | \gh{https://github.com/baranczov/ML_Competition_1}}
+\begin{itemize}
+\item Performed EDA and preprocessing on more than 500,000 observations, accounting for temporal shifts between datasets; analyzed distributions by month and product.
+\item Built a CatBoost and LightGBM ensemble with optimized weights, achieving a ROC-AUC of 0.74 against a baseline of 0.73707.
+\end{itemize}
+\project{Alfa-Bank Customer Churn Prediction}{\gh{https://github.com/baranczov/ML_Project_1}}
+\begin{itemize}
+\item Performed EDA and feature engineering on data from 125,000 customers; identified a 3--12 month period with churn rates of up to 18\%.
+\item Built a CatBoost model with a ROC-AUC of 0.9012; used SHAP to identify churn drivers, defined five risk segments and prepared customer retention recommendations.
+\end{itemize}
+\project{Steam Game Review Prediction}{\kg{https://www.kaggle.com/competitions/cu-advance-project/leaderboard?tab=public} | \gh{https://github.com/baranczov/ML_Competition_2}}
+\begin{itemize}
+\item Developed a PyTorch neural network to predict positive and negative review counts, combining numerical features, platform flags and TF-IDF representations of game descriptions.
+\item Achieved an MAE of approximately 180 and ranked 21st out of 242 participants in the Kaggle competition.
+\end{itemize}
+\project{Weather Forecast Web Application}{\gh{https://github.com/baranczov/SWE_weather_app}}
+\begin{itemize}
+\item Developed a web service for viewing weather forecasts along a route on a map.
+\item Implemented the client-server architecture, external API integration, request handling and weather data visualization.
+\end{itemize}
+\project{Personal Assistant with AI Agents}{\gh{https://github.com/Assirisss/ai-agents-hse}}
+\begin{itemize}
+\item Developing a personal assistant with a team to manage tasks, finances, health and wardrobe.
+\item The project includes a React and TypeScript interface and a trend discovery service built with Node.js and Fastify, featuring web search, SQLite memory and LLM integration via OpenRouter or Ollama.
+\end{itemize}
+\project{Party Bot: Telegram Mini App for Events}{\gh{https://github.com/baranczov/party_bot}}
+\begin{itemize}
+\item Developed an application for ticket sales and student event management, including electronic tickets, an auction, promo codes, a merchandise shop and a token system with QR codes.
+\item Built a React and TypeScript interface, a FastAPI backend with PostgreSQL, and integrations with Telegram and Google Sheets.
+\end{itemize}
+\section*{Technical Skills}
+\textbf{Classic ML:} Python, NumPy, Pandas, scikit-learn, CatBoost, LightGBM, Optuna, data analysis, data preprocessing, feature engineering, model ensembles, cross-validation, SHAP.\par
+\textbf{MLOps:} Docker, Git, GitLab CI/CD, Apache Airflow, Spark/PySpark, Hive, HDFS, S3, Model Registry, Linux, training and inference automation, ML pipeline testing, model monitoring.\par
+\textbf{Frontend:} HTML, CSS, JavaScript, TypeScript, React, responsive layouts, REST API, data visualization, npm, Vite.\par
+\textbf{Backend:} Python, Flask, FastAPI, SQL, PostgreSQL, ClickHouse, Kafka, REST API, client-server architecture, external service integration, testing, Docker.\par
+\textbf{Deep Learning:} Python, PyTorch, neural networks, NLP, embeddings, transformers, LLMs, multimodal models, GPU training, speech recognition.\par
+\textbf{Mathematics:} Linear algebra, calculus, probability theory, mathematical statistics, discrete mathematics, optimization methods, hypothesis testing, A/B testing.\par
+\textbf{Languages:} Russian (native), English (B2).
+\end{document}

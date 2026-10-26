@@ -1,0 +1,10 @@
+<div class="carousel-controls">
+  {% if not minimal %}<span class="carousel-hint">{{ t.drag }}</span>{% endif %}
+  <div class="carousel-buttons">
+    <button type="button" class="icon-button" data-prev aria-label="{{ t.prev }}">←</button>
+    <span class="carousel-counter" aria-live="polite" aria-atomic="true"><span data-current>01</span><span class="counter-divider">/</span><span data-total>01</span></span>
+    <button type="button" class="icon-button" data-next aria-label="{{ t.next }}">→</button>
+    {% if not minimal %}<button type="button" class="icon-button pause-button" data-pause aria-label="{{ t.pause }}" aria-pressed="false">Ⅱ</button>{% endif %}
+  </div>
+</div>
+

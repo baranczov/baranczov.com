@@ -1,0 +1,115 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage{type1ec}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[margin=12.7mm,top=11.5mm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\hypersetup{colorlinks=false,pdfborder={0 0 1},linkbordercolor={0 1 1},urlbordercolor={0 1 1},pdftitle={Баранцов Данил — резюме},pdfauthor={Баранцов Данил}}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.35em,labelsep=.45em,topsep=2pt,itemsep=2pt,parsep=0pt}
+\titleformat{\section}{\fontsize{12}{14}\selectfont\bfseries}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+\newcommand{\entry}[3]{\textbf{#1}\hfill #3\par\textit{#2}\par}
+\newcommand{\project}[2]{\vspace{6pt}\textbf{#1}\hfill #2\par}
+\newcommand{\gh}[1]{\href{#1}{GitHub}}
+\newcommand{\kg}[1]{\href{#1}{Kaggle}}
+\begin{document}
+\fontsize{10.5}{13}\selectfont
+\begin{center}
+{\fontsize{14.3}{17}\selectfont\bfseries Баранцов Данил}\par
+{\bfseries Machine Learning Engineer | Data Scientist}\par
+Москва | \href{mailto:dbaranczov@inbox.ru}{dbaranczov@inbox.ru} |
+Telegram: \href{https://t.me/baranczov}{@baranczov} |
+GitHub: \href{https://github.com/baranczov}{baranczov}
+\end{center}
+\vspace{-2pt}
+\section*{Образование}
+\entry{Центральный университет, Москва}{Бакалавриат МКН, направление: Искусственный интеллект}{2024 -- 2028}
+\begin{itemize}
+\item GPA: 8,67/10
+\item Стипендиант ТБанка и АренаДаты
+\end{itemize}
+\vspace{3pt}
+\entry{Высшая школа экономики, Москва}{Бакалавриат МКН}{2024 -- 2028}
+\begin{itemize}
+\item Поступил на совместный бакалавриат ЦУ и ПМИ ФКН ВШЭ
+\end{itemize}
+\begingroup
+\setlist[itemize]{leftmargin=1.35em,labelsep=.45em,topsep=1pt,itemsep=1pt,parsep=0pt}
+\section*{Опыт работы}
+\fontsize{10.5}{11.9}\selectfont
+\entry{Machine Learning Engineer}{ВкусВилл}{Ноябрь 2024 -- Март 2026}
+\begin{itemize}
+\item \textbf{Разработка ML-пайплайна.} Спроектировал архитектуру интеллектуального ядра системы разбора инцидентов дежурной поддержки на базе гибридного ML-пайплайна. Объединил распознавание речи, обработку транскриптов и генерацию отчётов в последовательный процесс обработки созвонов.
+\item \textbf{Распознавание речи.} Интегрировал Vosk для локальной транскрибации аудиопотоков созвонов в реальном времени. Реализовал обработку на CPU с минимальной задержкой: текст разговора поступал в систему по мере обсуждения инцидента.
+\item \textbf{Генерация отчётов.} Реализовал Use-Case слой для буферизации транскриптов и группировки по сессиям. Подключил Groq API с моделью Llama-3 70B для формирования отчётов по материалам созвонов со скоростью более 200 токенов/с.
+\end{itemize}
+\vspace{4pt}
+\entry{Machine Learning Engineer}{IT-ONE}{Февраль 2026 -- Июль 2026}
+\begin{itemize}
+\item \textbf{Подготовка текстовых данных.} Подготовил датасет из 60 тыс. обращений по 12 категориям для маршрутизации в поддержке. Очистил тексты, удалил дубликаты и согласовал правила разметки. Сформировал временное разделение train/validation/test, исключив пересечение цепочек обращений между выборками.
+\item \textbf{Разработка NLP-модели.} Дообучил RuBERT на PyTorch и Hugging Face Transformers; сравнил с baseline TF-IDF и логистической регрессией. На отложенной выборке получил macro-F1 0,86 против 0,78 у baseline. Проанализировал ошибки и дисбаланс классов, подготовил уточнения разметки неоднозначных категорий.
+\item \textbf{Подготовка сервиса к интеграции.} Реализовал FastAPI-сервис в Docker с пакетной обработкой, валидацией запросов, логированием ошибок и версионированием модели. На стенде с NVIDIA T4 получил p95 задержки 120 мс для одиночных запросов до 256 токенов. Передал сервис и контракт API backend-команде; production-запуск в период работы не состоялся.
+\end{itemize}
+\vspace{4pt}
+\entry{Machine Learning Engineer}{ТБанк}{Март 2026 -- Октябрь 2026}
+\begin{itemize}
+\item \textbf{Миграция ML-инфраструктуры.} Самостоятельно обновил MLOps-фреймворк, GitLab CI, Python и Airflow для 25 моделей комплаенса: 25 train DAG и 25 QA DAG в окружениях train/QA/prod. Перенёс модели из S3 в Model Registry. Изменения внедрены в production; упростились загрузка, версионирование, повторное обучение и сопровождение.
+\item \textbf{Проверка миграции.} Ретротестированием на существующей выборке проверил старую и новую версии всех 25 моделей: скоры и итоговые метрики совпали в пределах установленного допуска.
+\item \textbf{Разработка модели 172Т.} Подготовил выборку на едином базисе, исправив SQL-скрипты и Airflow DAG. Лично реализовал 10 гипотез и повысил ROC-AUC с 0,92 до 0,95 в экспериментах. До моего ухода улучшенная версия не была внедрена в production.
+\item \textbf{Документация ML-систем.} Актуализировал ML System Doc по 25 моделям, сверив подготовку данных, обучение и инференс с кодом. Изменения приняты всей командой.
+\end{itemize}
+\endgroup
+\section*{Достижения}
+\begin{itemize}
+\item Победитель регионального этапа ВсОШ по математике
+\item Победитель Всесибирской открытой олимпиады школьников
+\item 3-е место Дататон 2.0 (кейс-чемпионат от ТБанка)
+\end{itemize}
+\newpage
+\section*{Проектный опыт}
+\project{Прогноз досрочного погашения кредитов}{\kg{https://www.kaggle.com/competitions/cu-2025-scoring} | \gh{https://github.com/baranczov/ML_Competition_1}}
+\begin{itemize}
+\item Провёл EDA и предобработку более 500 тысяч наблюдений с учётом временного сдвига между выборками; проанализировал распределения по месяцам и продуктам.
+\item Построил ансамбль CatBoost и LightGBM с оптимизацией весов: ROC-AUC 0,74 при базовом результате 0,73707.
+\end{itemize}
+\project{Прогнозирование оттока клиентов Альфа-Банка}{\gh{https://github.com/baranczov/ML_Project_1}}
+\begin{itemize}
+\item Провёл EDA и feature engineering на данных 125 тысяч клиентов; выявил период 3--12 месяцев с оттоком до 18\%.
+\item Построил CatBoost-модель с ROC-AUC 0,9012; с помощью SHAP определил факторы оттока, выделил пять сегментов риска и подготовил рекомендации по удержанию клиентов.
+\end{itemize}
+\project{Прогнозирование отзывов игр Steam}{\kg{https://www.kaggle.com/competitions/cu-advance-project/leaderboard?tab=public} | \gh{https://github.com/baranczov/ML_Competition_2}}
+\begin{itemize}
+\item Разработал нейросетевое решение на PyTorch для прогноза количества положительных и отрицательных отзывов; объединил числовые признаки, флаги платформ и TF-IDF описаний игр.
+\item Достиг MAE около 180 и занял 21-е место из 242 участников соревнования Kaggle.
+\end{itemize}
+\project{Веб-приложение для прогноза погоды}{\gh{https://github.com/baranczov/SWE_weather_app}}
+\begin{itemize}
+\item Разработал веб-сервис для просмотра прогноза погоды по маршруту на карте.
+\item Реализовал клиент-серверную архитектуру, интеграцию с внешним API, обработку запросов и визуализацию погодных данных.
+\end{itemize}
+\project{Личный ассистент с AI-агентами}{\gh{https://github.com/Assirisss/ai-agents-hse}}
+\begin{itemize}
+\item В составе команды разрабатываю ассистента для управления делами, финансами, здоровьем и гардеробом.
+\item В проекте реализованы интерфейс на React и TypeScript и сервис поиска трендов на Node.js и Fastify с веб-поиском, SQLite-памятью и подключением LLM через OpenRouter или Ollama.
+\end{itemize}
+\project{Party Bot: Telegram Mini App для мероприятий}{\gh{https://github.com/baranczov/party_bot}}
+\begin{itemize}
+\item Разработал приложение для продажи билетов и управления студенческим мероприятием: электронные билеты, аукцион, промокоды, фаншоп и система фишек с QR-кодами.
+\item Создал интерфейс на React и TypeScript, backend на FastAPI с PostgreSQL и интеграции с Telegram и Google Sheets.
+\end{itemize}
+\section*{Технические навыки}
+\textbf{Classic ML:} Python, NumPy, Pandas, scikit-learn, CatBoost, LightGBM, Optuna, анализ данных, предобработка данных, feature engineering, ансамбли моделей, кросс-валидация, SHAP.\par
+\textbf{MLOps:} Docker, Git, GitLab CI/CD, Apache Airflow, Spark/PySpark, Hive, HDFS, S3, Model Registry, Linux, автоматизация обучения и инференса, тестирование ML-пайплайнов, мониторинг моделей.\par
+\textbf{Frontend:} HTML, CSS, JavaScript, TypeScript, React, адаптивная вёрстка, REST API, визуализация данных, npm, Vite.\par
+\textbf{Backend:} Python, Flask, FastAPI, SQL, PostgreSQL, ClickHouse, Kafka, REST API, клиент-серверная архитектура, интеграция внешних сервисов, тестирование, Docker.\par
+\textbf{Deep Learning:} Python, PyTorch, нейронные сети, NLP, эмбеддинги, трансформеры, LLM, мультимодальные модели, обучение на GPU, распознавание речи.\par
+\textbf{Математика:} Линейная алгебра, математический анализ, теория вероятностей, математическая статистика, дискретная математика, методы оптимизации, проверка гипотез, A/B-тестирование.\par
+\textbf{Языки:} Русский (родной), Английский (B2).
+\end{document}

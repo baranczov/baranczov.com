@@ -1,0 +1,51 @@
+"""Project descriptions and links supplied by the portfolio owner."""
+PROJECTS = [
+    {
+        "title_ru": "Прогноз досрочного погашения кредитов",
+        "title_en": "Loan prepayment prediction",
+        "description_ru": "Проанализировал и подготовил более 500 тысяч наблюдений с учётом временного сдвига данных. Построил ансамбль CatBoost и LightGBM с оптимизацией весов, превысив базовый результат и достигнув ROC-AUC 0,74.",
+        "description_en": "Analyzed and prepared more than 500,000 observations, accounting for temporal data shift. Built a CatBoost and LightGBM ensemble with optimized weights, outperforming the baseline and achieving a ROC-AUC of 0.74.",
+        "github_url": "https://github.com/baranczov/ML_Competition_1",
+        "kaggle_url": "https://www.kaggle.com/competitions/cu-2025-scoring",
+    },
+    {
+        "title_ru": "Прогнозирование оттока клиентов Альфа-Банка",
+        "title_en": "Alfa-Bank customer churn prediction",
+        "description_ru": "Провёл анализ данных 125 тысяч клиентов и построил CatBoost-модель с ROC-AUC 0,9012. С помощью SHAP выявил ключевые факторы оттока, выделил пять сегментов риска и подготовил рекомендации по удержанию клиентов.",
+        "description_en": "Analyzed data from 125,000 customers and built a CatBoost model with a ROC-AUC of 0.9012. Used SHAP to identify key churn drivers, defined five risk segments and prepared recommendations for customer retention.",
+        "github_url": "https://github.com/baranczov/ML_Project_1",
+        "kaggle_url": "",
+    },
+    {
+        "title_ru": "Прогнозирование отзывов игр Steam",
+        "title_en": "Steam game review prediction",
+        "description_ru": "Разработал нейросетевое решение на PyTorch для прогнозирования количества положительных и отрицательных отзывов. Объединил числовые признаки и текстовые описания игр, достиг MAE около 180 и занял 21-е место из 242 участников соревнования.",
+        "description_en": "Developed a PyTorch neural network solution to predict the number of positive and negative reviews. Combined numerical features with game descriptions, achieved an MAE of around 180 and placed 21st out of 242 competition participants.",
+        "github_url": "https://github.com/baranczov/ML_Competition_2",
+        "kaggle_url": "https://www.kaggle.com/competitions/cu-advance-project/leaderboard?tab=public",
+    },
+    {
+        "title_ru": "Веб-приложение для прогноза погоды",
+        "title_en": "Weather forecast web application",
+        "description_ru": "Разработал веб-сервис для просмотра прогноза погоды по маршруту на карте. Реализовал клиент-серверную архитектуру, интеграцию с внешним API, обработку запросов и визуализацию погодных данных.",
+        "description_en": "Developed a web service for viewing weather forecasts along a route on a map. Implemented a client-server architecture, an external API integration, request handling and weather data visualization.",
+        "github_url": "https://github.com/baranczov/SWE_weather_app",
+        "kaggle_url": "",
+    },
+    {
+        "title_ru": "Личный ассистент с AI-агентами",
+        "title_en": "Personal assistant with AI agents",
+        "description_ru": "В составе команды разрабатываю личного ассистента для управления делами, финансами, здоровьем и гардеробом. В проекте реализованы интерфейс на React и TypeScript и сервис поиска трендов на Node.js и Fastify с веб-поиском, SQLite-памятью и подключением LLM через OpenRouter или Ollama.",
+        "description_en": "As part of a team, I am developing a personal assistant for managing tasks, finances, health and wardrobe. The project includes a React and TypeScript interface and a trend discovery service built with Node.js and Fastify, featuring web search, SQLite memory and LLM integration through OpenRouter or Ollama.",
+        "github_url": "https://github.com/Assirisss/ai-agents-hse",
+        "kaggle_url": "",
+    },
+    {
+        "title_ru": "Telegram Mini App для мероприятий",
+        "title_en": "Telegram Mini App for events",
+        "description_ru": "Разработал Telegram Mini App для продажи билетов и управления студенческим мероприятием. Реализовал выдачу электронных билетов, аукцион, промокоды, фаншоп и систему фишек с QR-кодами. Создал интерфейс на React и TypeScript, backend на FastAPI с PostgreSQL и интеграции с Telegram и Google Sheets.",
+        "description_en": "Developed a Telegram Mini App for ticket sales and student event management. Implemented electronic ticket issuance, an auction, promo codes, a merchandise shop and a token system with QR codes. Built a React and TypeScript interface, a FastAPI backend with PostgreSQL, and integrations with Telegram and Google Sheets.",
+        "github_url": "https://github.com/baranczov/party_bot",
+        "kaggle_url": "",
+    },
+]
